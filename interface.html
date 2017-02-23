@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IR-Remote</title>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+        <!-- script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <form name="led">
+            <fieldset>
+                <legend>LEDs</legend>
+                <p><button name="power" value="-">An / Aus</button></p>
+                <p><button name="dim-max" value="-">Ganz dunkel</button></p>
+                <p><button name="bright-max" value="-">Ganz hell</button></p>
+                <p><button name="dim" value="-">dunkler</button></p>
+                <p><button name="bright" value="-">heller</button></p>
+                <p>
+                    <button name="red1" value="-">Rot 1</button>
+                    <button name="green1" value="-">Grün 1</button>
+                    <button name="blue1" value="-">Blau 1</button>
+                    <button name="white1" value="-">Weiß 1</button>
+                </p>
+            </fieldset>
+        </form>
+        <script>
+            $("form").each(
+                function (idx, elm) {
+                    var deviceName = this.name;
+                    $(this).find("button").on(
+                        "click",
+                        function (evnt) {
+                            evnt.preventDefault();
+                            var command = this.name,
+                                url = "http://192.168.1.201/" + deviceName + "/" + command;
+                            $.get(url, function () {
+                                console.log(arguments);
+                            });
+                        }
+                    );
+                }
+            );
+        </script>
+    </body>
+</html>
