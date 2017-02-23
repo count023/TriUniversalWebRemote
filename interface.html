@@ -3,41 +3,328 @@
     <head>
         <title>IR-Remote</title>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-        <!-- script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-size: 150%;
+                background-color: #FFF;
+            }
+            form {
+                display: none;
+            }
+            form > fieldset {
+                padding: 0 2%;
+        width: 98%;
+                margin: auto;
+            }
+            form > fieldset > legend {
+                display: none;
+            }
+            menu {
+                margin: 0;
+                padding: 2% 4%;
+            }
+            nav {
+                position: absolute;
+                top: 40%;
+                left: -56%;
+                height: 8em;
+                width: 140%;
+                transform: rotate(-90deg);
+                display: none;
+                z-index: 2;
+                /*border: 1px solid green;*/
+            }
+            nav > ul {
+                margin: 0;
+                height: 3em;
+                width: 100%;
+                padding: 0 0 0 0em;
+                right: 0;
+                position: relative;
+            }
+            nav > ul > li {
+                float: right;
+                display: block;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border: 1px solid grey;
+                border-radius: .7em .7em 0 0;
+                background-color: lightgrey;
+            }
+            nav > ul > li.active {
+                color: #000;
+                background-color: #FFF;
+                border-color: #000;
+                border-bottom-color: transparent;
+                margin: 0 0 0 0;
+            }
+            nav > ul > li > a,
+            nav > ul > li > a:focus {
+                font-size: 1.5em;
+                padding: .2em 2em;
+                display: inline-block;
+                color: #000;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            main {
+                position: relative;
+            }
+            main.deactivated {
+                left: 10%;
+            }
+            .btn:focus {
+                outline: 0;
+            }
+            .btn-lg,
+            .btn-md {
+                font-size: 150%;
+            }
+            .btn-half {
+                width: 48.5%;
+            }
+            .btn-third {
+                width: 32.3%;
+            }
+            .btn-two-third {
+                width: 65.6%;
+            }
+            .btn-quarter {
+                width: 23.8%;
+            }
+            .btn-three-quarter {
+                width: 74.5%;
+            }
+            .btn-fifth {
+                width: 18.875%;
+            }
+            .btn-two-fifth {
+                width: 39.4%;
+            }
+            .btn-three-fifth {
+                width: 59.6%;
+            }
+            .btn-four-fifth {
+                width: 79.8%;
+            }
+
+            .btn-md {
+                font-size: 110%;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
-        <form name="led">
-            <fieldset>
-                <legend>LEDs</legend>
-                <p><button name="power" value="-">An / Aus</button></p>
-                <p><button name="dim-max" value="-">Ganz dunkel</button></p>
-                <p><button name="bright-max" value="-">Ganz hell</button></p>
-                <p><button name="dim" value="-">dunkler</button></p>
-                <p><button name="bright" value="-">heller</button></p>
-                <p>
-                    <button name="red1" value="-">Rot 1</button>
-                    <button name="green1" value="-">Grün 1</button>
-                    <button name="blue1" value="-">Blau 1</button>
-                    <button name="white1" value="-">Weiß 1</button>
-                </p>
-            </fieldset>
-        </form>
+        <menu>
+            <menuitem><span class="fa fa-navicon"></span></menuitem>
+        </menu>
+        <nav>
+            <ul>
+                <li><a href="#tv">TV</a></li>
+                <li><a href="#led">LEDs</a></li>
+                <li><a href="#gigablue">Sky</a></li>
+                <li><a href="#dvd">DVD</a></li>
+            </ul>
+        </nav>
+        <main>
+            <form id="tv">
+                <fieldset>
+                    <legend>TV</legend>
+                    <p>
+                        <button type="button" name="power" value="-" class="btn btn-lg btn-danger btn-half"><span class="fa fa-power-off"></span></button>
+                        <button type="button" name="source" value="-" class="btn btn-lg btn-half">Source</button>
+                    </p>
+                    <!-- p>
+                        <button type="button" name="one" value="-" class="btn btn-lg btn-quarter">1</button>
+                        <button type="button" name="two" value="-" class="btn btn-lg btn-quarter">2</button>
+                        <button type="button" name="three" value="-" class="btn btn-lg btn-quarter">3</button>
+                        <button type="button" name="four" value="-" class="btn btn-lg btn-quarter">4</button>
+                    </p>
+                    <p>
+                        <button type="button" name="five" value="-" class="btn btn-lg btn-quarter">5</button>
+                        <button type="button" name="six" value="-" class="btn btn-lg btn-quarter">6</button>
+                        <button type="button" name="seven" value="-" class="btn btn-lg btn-quarter">7</button>
+                        <button type="button" name="eight" value="-" class="btn btn-lg btn-quarter">8</button>
+                    </p-->
+                        <!--
+                        <button type="button" name="nine" value="-" class="btn btn-lg btn-quarter">9</button>
+                        <button type="button" name="zero" value="-" class="btn btn-lg btn-quarter">0</button>
+                        -->
+                    <p>
+                        <button type="button" name="ard" value="-" class="btn btn-md btn-fifth">ARD</button>
+                        <button type="button" name="zdf" value="-" class="btn btn-md btn-fifth">ZDF</button>
+                        <button type="button" name="3sat" value="-" class="btn btn-md btn-fifth">3Sat</button>
+                        <button type="button" name="sat1" value="-" class="btn btn-md btn-fifth">SAT1</button>
+                        <button type="button" name="rtl" value="-" class="btn btn-md btn-fifth">RTL</button>
+                    </p>
+                    <p>
+                        <button type="button" name="vox" value="-" class="btn btn-md btn-fifth">VOX</button>
+                        <button type="button" name="prosieben" value="-" class="btn btn-md btn-fifth">Pro7</button>
+                        <button type="button" name="kabel1" value="-" class="btn btn-md btn-fifth">Kabel1</button>
+                        <button type="button" name="rtl2" value="-" class="btn btn-md btn-fifth">RTL2</button>
+                        <button type="button" name="srtl" value="-" class="btn btn-md btn-fifth">SRTL</button>
+                    </p>
+                    <p>
+                        <button type="button" name="einsfestival" value="-" class="btn btn-md btn-fifth">ONE</button>
+                        <button type="button" name="neo" value="-" class="btn btn-md btn-fifth">Neo</button>
+                        <button type="button" name="alex" value="-" class="btn btn-md btn-fifth">Alex</button>
+                        <button type="button" name="gold" value="-" class="btn btn-md btn-fifth">Gold</button>
+                        <button type="button" name="maxx" value="-" class="btn btn-md btn-fifth">MAXX</button>
+                    </p>
+                    <p>
+                        <button type="button" name="guide" value="-" class="btn btn-lg btn-third">Guide</button>
+                        <button type="button" name="info" value="-" class="btn btn-lg btn-third"><span class="fa fa-info"></span></button>
+                        <button type="button" name="previous" value="-" class="btn btn-lg btn-third"><span class="fa fa-level-up"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="volumePlus" value="-" class="btn btn-lg btn-third" data-device="recv"><span class="fa fa-volume-up"></span></button>
+                        <button type="button" name="mute" value="-" class="btn btn-lg btn-third" data-device="recv"><span class="fa fa-volume-off"></span></button>
+                        <button type="button" name="channelUp" value="-" class="btn btn-lg btn-third"><span class="fa fa-angle-double-up"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="volumeMinus" value="-" class="btn btn-lg btn-third" data-device="recv"><span class="fa fa-volume-down"></span></button>
+                        <button type="button" name="up" value="-" class="btn btn-lg btn-third"><span class="fa fa-arrow-up"></span></button>
+                        <button type="button" name="channelDown" value="-" class="btn btn-lg btn-third"><span class="fa fa-angle-double-down"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="left" value="-" class="btn btn-lg btn-third"><span class="fa fa-arrow-left"></span></button>
+                        <button type="button" name="enter" value="-" class="btn btn-lg btn-third">Enter</button>
+                        <button type="button" name="right" value="-" class="btn btn-lg btn-third"><span class="fa fa-arrow-right"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="returning" value="-" class="btn btn-lg btn-third"><span class="fa fa-undo"></span></button>
+                        <button type="button" name="down" value="-" class="btn btn-lg btn-third"><span class="fa fa-arrow-down"></span></button>
+                        <button type="button" name="exiting" value="-" class="btn btn-lg btn-third">Exit</button>
+                    </p>
+                    <p>
+                        <button type="button" name="menu" value="-" class="btn btn-sm btn-fifth">Menu</button>
+                        <button type="button" name="tools" value="-" class="btn btn-sm btn-fifth">Tools</button>
+                        <button type="button" name="ttx" value="-" class="btn btn-sm btn-third btn-fifth">TTX</button>
+                        <button type="button" name="smartHub" value="-" class="btn btn-sm btn-fifth">Hub</button>
+                        <button type="button" name="chanelList" value="-" class="btn btn-sm btn-fifth">ChLst</button>
+                    </p>
+                    <p>
+                        <button type="button" name="pip" value="-" class="btn btn-sm btn-half">PiP</button>
+                    </p>
+                </fieldset>
+            </form>
+            <form id="led">
+                <fieldset>
+                    <legend>LEDs</legend>
+                    <p>
+                        <button type="button" name="power" value="-" class="btn btn-lg btn-danger btn-half"><span class="fa fa-power-off"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="bright-max" value="-" class="btn btn-lg btn-half"><span class="fa fa-angle-double-up"></span></button>
+                        <button type="button" name="bright" value="-" class="btn btn-lg btn-half"><span class="fa fa-angle-up"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="dim-max" value="-" class="btn btn-lg btn-half"><span class="fa fa-angle-double-down"></span></button>
+                        <button type="button" name="dim" value="-" class="btn btn-lg btn-half"><span class="fa fa-angle-down"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="red1" value="-" class="btn btn-md btn-danger btn-quarter">1</button>
+                        <button type="button" name="green1" value="-" class="btn btn-md btn-success btn-quarter">1</button>
+                        <button type="button" name="blue1" value="-" class="btn btn-md btn-info btn-quarter">1</button>
+                        <button type="button" name="white1" value="-" class="btn btn-md btn-default btn-quarter">1</button>
+                    </p>
+                </fieldset>
+            </form>
+            <form id="dvd">
+                <fieldset>
+                    <legend>DVD</legend>
+                    <p>
+                        <button type="button" name="power" value="-" class="btn btn-lg btn-danger btn-half"><span class="fa fa-power-off"></span></button>
+                        <button type="button" name="eject" value="-" class="btn btn-lg btn-half">Eject</button>
+                    </p>
+                    <p>
+                        <button type="button" name="play" value="-" class="btn btn-lg btn-third">Play</button>
+                        <button type="button" name="pause" value="-" class="btn btn-lg btn-third">Pause</button>
+                        <button type="button" name="stopping" value="-" class="btn btn-lg btn-third">Stop</button>
+                    </p>
+                    <p>
+                        <button type="button" name="left" value="-" class="btn btn-lg btn-quarter"><span class="fa fa-arrow-left"></span></button>
+                        <button type="button" name="up" value="-" class="btn btn-lg btn-quarter"><span class="fa fa-arrow-up"></span></button>
+                        <button type="button" name="down" value="-" class="btn btn-lg btn-quarter"><span class="fa fa-arrow-down"></span></button>
+                        <button type="button" name="right" value="-" class="btn btn-lg btn-quarter"><span class="fa fa-arrow-right"></span></button>
+                    </p>
+                </fieldset>
+            </form>
+            <form id="gigablue">
+                <fieldset>
+                    <legend>Sky</legend>
+                    <p>
+                        <button type="button" name="power" value="-" class="btn btn-lg btn-danger btn-half"><span class="fa fa-power-off"></span></button>
+                        <button type="button" name="up" value="-" class="btn btn-lg btn-half"><span class="fa fa-arrow-up"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" name="exiting" value="-" class="btn btn-lg btn-half">Exit</button>
+                        <button type="button" name="down" value="-" class="btn btn-lg btn-half"><span class="fa fa-arrow-down"></span></button>
+                    </p>
+                </fieldset>
+            </form>
+        </main>
         <script>
             $("form").each(
                 function (idx, elm) {
-                    var deviceName = this.name;
+                    var deviceName = this.id;
                     $(this).find("button").on(
                         "click",
                         function (evnt) {
                             evnt.preventDefault();
-                            var command = this.name,
-                                url = "http://192.168.1.201/" + deviceName + "/" + command;
+                            var $elm = $(this),
+                                command = this.name,
+                                finalDeviceName = $(this).data("device") || deviceName,
+                                url = "http://192.168.1.201/" + finalDeviceName + "/" + command;
+                            console.log("url", url);
                             $.get(url, function () {
                                 console.log(arguments);
+                                $elm.blur();
                             });
                         }
                     );
+                }
+            );
+            var showHideNav = function () {
+                var $main = $("main");
+                $("nav").toggle();
+                if ($main.hasClass("deactivated")) {
+                    $main.removeClass("deactivated");
+                } else {
+                    $main.addClass("deactivated");
+                }
+            }
+            $("nav > ul > li > a").each(
+                function (idx, elm) {
+                    $(elm).on(
+                        "click",
+                        function (evnt) {
+                            evnt.preventDefault();
+                            var tabId = $(this).attr("href");
+                            $("nav > ul > li.active").removeClass("active");
+                            $("form").hide();
+                            $(this).parent().addClass("active");
+                            $(tabId).show();
+                            if ($("nav:visible").length > 0) {
+                                showHideNav();
+                            }
+                        }
+                    );
+                    if (idx === 0) {
+                        $(elm).trigger("click");
+                    }
+                }
+            );
+            $("menuitem").on(
+                "click",
+                function (evnt) {
+                    evnt.preventDefault();
+                    showHideNav();
                 }
             );
         </script>
