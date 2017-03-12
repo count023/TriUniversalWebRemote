@@ -24,7 +24,7 @@ The first problem i ran into was the fact, that my devices aren't located at one
 
 Inspired by BuddyC's [simple schema](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca#schematics) i made it. (i added a more described version of a fritzing here - i am not an expert in wiring, and it always takes me hours - i'm more in coding which is easy for me)
 
-The quasi RESTful API follows the pattern GET /<device>/<command> and pointing directly to a simple server running on the ESP8266 nodemcu. So hitting http://<ip-of-the-node>/<device>/<command> will be translated into an infrared signal and sent by the the two IR-LEDs.
+The quasi RESTful API follows the pattern GET /&lt;device&gt;/&lt;command&gt; and pointing directly to a simple server running on the ESP8266 nodemcu. So hitting http://&lt;ip-of-the-node&gt;/&lt;device&gt;/&lt;command&gt; in a browser will be translated into an infrared signal and sent by the the two IR-LEDs.
 
 I also added a modularised implementation of HTTP-Update based on another project by me: [GpioneersHttpUpdate](https://github.com/count023/esp-http-update-server) to provide a simple way to update the device, without connecting it via USB to the computer.
 
