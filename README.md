@@ -6,7 +6,7 @@ My personal IR-Remote-Control for 5 devices.
 
 Many people nowadays have a lot of devices around, most of them using IR-Remote-Controls, so i do. I simply was fed up with carrying those controls around when moving from the desk to my sofa and vice versa. After purchasing another device - a LED-stripe with yet another control - i seriously thought about buying a universal remote control. But the fixed layout of the buttons of the usual products annoyed me. Thus i decided, to build my own universal IR remote control, providing kind of RESTful API, to control my devices. And to code a nice looking Web-Interface for it - only with the buttons i use and suiting perfectly my personal needs.
 
-![interface.html](TriUniversalWebRemote-schematic.png "see interface.html in this repository")
+![interface.html](TriUniversalWebRemote-interface.png "see interface.html in this repository")
 
 
 ## Implementation
@@ -20,13 +20,13 @@ This way 5 files in here may of considerable interest:
 - IR-codes for a Paulmann LED-stripe
 - IR-codes for a GigaBlue receiver (HD 800 UE plus)
 
-The first problem i ran into was the fact, that my devices aren't located at one place but two of those around four meters away from the other three. The most IR-LEDs - and exspecially the cheap ones - have a emitter angle of around 20°. So i need to use two emitter. While meditate on the wiring i found a very similar project: [WiFi IR Blaster](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca).
+The first problem i ran into was the fact, that my devices aren't located at one place but two of those around four meters away from the other three. The most IR-LEDs - and especially the cheap ones - have a emitter angle of around 20°. So i needed to use two emitter. While meditate on the wiring i found a very similar project: [WiFi IR Blaster](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca).
 
 Inspired by BuddyC's [simple schema](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca#schematics) i made it. (i added a more described version of a fritzing here - i am not an expert in wiring, and it always takes me hours - i'm more in coding which is easy for me)
 
-The quasi RESTful API follows he simple schema of GET /<device>/<command> and pointing directly to a simple server running on the ESP8266 nodemcu. So hitting http://<ip-of-the-node>/<device>/<command> will be translated into an infrared signal and sent by the the two IR-LEDs.
+The quasi RESTful API follows the pattern GET /<device>/<command> and pointing directly to a simple server running on the ESP8266 nodemcu. So hitting http://<ip-of-the-node>/<device>/<command> will be translated into an infrared signal and sent by the the two IR-LEDs.
 
-I also added a modularised implementation of HTTP-Update based on another project by me: [GpioneersHttpUpdate](https://github.com/count023/esp-http-update-server) to provide a simple way to update the device without plugging it via USB to the computer.
+I also added a modularised implementation of HTTP-Update based on another project by me: [GpioneersHttpUpdate](https://github.com/count023/esp-http-update-server) to provide a simple way to update the device, without connecting it via USB to the computer.
 
 
 ## Fritzing
