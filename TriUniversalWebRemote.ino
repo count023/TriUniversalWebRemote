@@ -19,7 +19,6 @@
  *  intended to be build on a nodeMcu V3 (esp8266)
 */
 #include <regex> // needed for std::set
-#include <RCSwitch.h>
 #include <IRremoteESP8266.h>
 
 
@@ -40,11 +39,10 @@ struct DeviceCommand {
 };
 
 const int MAX_CLIENT_AVAILABLE = 200;
-const int IR_LED_PIN = 3;
-const int RC_SWITCH_PIN = 2;
+const int IR_LED_PIN = D1;
+//const int RC_SWITCH_PIN = D2;
 
-RCSwitch mySwitch = RCSwitch();
-// an IR led is connected to GPIO pin ?
+// an IR led is connected to GPIO pin D1
 IRsend irsend(IR_LED_PIN);
 
 // Create an instance of the server
@@ -361,7 +359,7 @@ String handleTv(String req) {
   for (irCodeIterator = irCode.begin(); irCodeIterator != irCode.end(); ++irCodeIterator) {
     irsend.sendSAMSUNG(*irCodeIterator, 32);
     delay(100);
-    Serial.println("handleTv: send " + val + " irCode " + String(*irCodeIterator));
+    Serial.println("handleTv: send " + val + " irCode " + String(*irCodeIterator) + " at PIN " + String(IR_LED_PIN));
   }
 
   return val;
