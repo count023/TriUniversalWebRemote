@@ -272,7 +272,8 @@
         <script>
             $("form").each(
                 function (idx, elm) {
-                    var deviceName = this.id;
+                    var deviceName = this.id,
+                        irServerIp = "<your-esp-device-ip-in-lan>"; // e. g. "192.168.0.100"
                     $(this).find("button").on(
                         "click",
                         function (evnt) {
@@ -280,7 +281,7 @@
                             var $elm = $(this),
                                 command = this.name,
                                 finalDeviceName = $(this).data("device") || deviceName,
-                                url = "http://192.168.1.201/" + finalDeviceName + "/" + command;
+                                url = "http://" + irServerIp + "/" + finalDeviceName + "/" + command;
                             console.log("url", url);
                             $.get(url, function () {
                                 console.log(arguments);
