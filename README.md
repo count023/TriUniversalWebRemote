@@ -52,4 +52,4 @@ A modularised implementation of HTTP-Update based on [another project](https://g
 
 ## ToDo
 
-The implementation of the methods like handleTv are bloody simple by now. I simply didn’t manage it to get use of a two dimensional HashMap for the translation of the HTTP-request-path into an IR-command. (Some trials of this are in the code right now - but they do not work yet)
+The implementation of the methods like handleTv are bloody simple currently. I simply didn’t manage to get use of a two dimensional HashMap for the translation of the HTTP-request-path into an IR-command. (Some trials of this are in the code right now - but they do not work yet)
