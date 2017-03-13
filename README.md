@@ -47,7 +47,7 @@ A modularised implementation of HTTP-Update based on [another project](https://g
 - adapt the methods like handleTv and create similar .h-files like samsung_remote_codes.h for the ir-remote-codes of your special devices
 - finally push the compiled code to your ESP8266, for example by using [Arduino IDE](https://www.arduino.cc/en/main/software)
 - put the file interface.html somewhere on a server in your LAN
-(hope you have one. This code will not work as a local file opened in a browser due to CrosSideScripting-restrictions - if so, you need to change it, for example by using a hidden image-tag updated with the desired URI or so)
+(hope you have one. This code will not work as a local file opened in a browser due to CrossSideScripting-restrictions - if so, you need to change it, for example by using a hidden image-tag updated with the desired URI or so)
 
 
 ## ToDo
