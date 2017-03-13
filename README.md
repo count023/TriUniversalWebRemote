@@ -26,6 +26,8 @@ Inspired by BuddyC's [simple schema](https://create.arduino.cc/projecthub/BuddyC
 
 The quasi RESTful API follows the pattern GET /&lt;device&gt;/&lt;command&gt; and pointing directly to a simple server running on the ESP8266 nodemcu. So hitting http://&lt;ip-of-the-node&gt;/&lt;device&gt;/&lt;command&gt; in a browser will be translated into an infrared signal and sent by the the two IR-LEDs.
 
+I also found another approach of implementing an ir-remote with an ESP8266 [here](https://alexbloggt.com/universal-infrarot-websteuerung-ueber-esp8266/). But i do not like the missing validation of the user input - as a developer i consider this as bad style - and the delegation of the detailed implementation to the interface looks ugly: the interface needs to have knowledge about the correct ir-protocol and the specific command codes.
+
 I also added a modularised implementation of HTTP-Update based on another project by me: [GpioneersHttpUpdate](https://github.com/count023/esp-http-update-server) to provide a simple way to update the device, without connecting it via USB to the computer.
 
 
