@@ -45,6 +45,7 @@ I also added a modularised implementation of HTTP-Update based on another projec
 - adapt the passwords.h.example as described in the file
 - adapt the GpioneersHttpUpdate.h to point to your update server
 - adapt the methods like handleTv and create similar .h-files like samsung_remote_codes.h for the ir-remote-codes of your special devices
+- finally push the compiled code to your ESP8266, for example by using Arduino IDE
 
 
 ## ToDo
