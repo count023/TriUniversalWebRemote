@@ -20,15 +20,15 @@ This way 5 files in here may of considerable interest:
 - IR-codes for a Paulmann LED-stripe
 - IR-codes for a GigaBlue receiver (HD 800 UE plus)
 
-The first problem i ran into was the fact, that my devices aren't located at one place but two of those around four meters away from the other three. The most IR-LEDs - and especially the cheap ones - have a emitter angle of around 20°. So i needed to use two emitter. While meditate on the wiring i found a very similar project: [WiFi IR Blaster](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca).
+The first problem i ran into was the fact, that my devices aren't located at one place but two of those around four meters away from the other three. The most IR-LEDs - and especially the cheap ones - have a emitter angle of around 20°. So using two emitters was the solution. While meditating on the wiring a very similar project gave useful hints: [WiFi IR Blaster](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca).
 
-Inspired by BuddyC's [simple schema](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca#schematics) i made it. (i added a more described version of a fritzing here - i am not an expert in wiring, and it always takes me hours - i'm more in coding which is easy for me)
+Inspired by BuddyC's [simple schema](https://create.arduino.cc/projecthub/BuddyC/wifi-ir-blaster-af6bca#schematics) it was easy to manage. (i added a more described version of a fritzing here for people as clumsy as me in wiring - it always takes me hours - i'm more in coding which is easy for me)
 
 The quasi RESTful API follows the pattern GET /&lt;device&gt;/&lt;command&gt; and pointing directly to a simple server running on the ESP8266 nodemcu. So hitting http://&lt;ip-of-the-node&gt;/&lt;device&gt;/&lt;command&gt; in a browser will be translated into an infrared signal and sent by the two IR-LEDs.
 
-I also found another approach of implementing an ir-remote with an ESP8266 [here](https://alexbloggt.com/universal-infrarot-websteuerung-ueber-esp8266/). But i do not like the missing validation of the user input - as a developer i consider this as bad style - and the delegation of the detailed implementation to the interface looks ugly: the interface needs to have knowledge about the correct ir-protocol and the specific command codes.
+Another approach of implementing an ir-remote with an ESP8266 can be found [here](https://alexbloggt.com/universal-infrarot-websteuerung-ueber-esp8266/). But i do not like the missing validation of the user input - as a developer i consider this as bad style - and the delegation of the detailed implementation to the interface looks ugly: the interface needs to have knowledge about the correct ir-protocol and the specific command codes.
 
-I also added a modularised implementation of HTTP-Update based on another project by me: [GpioneersHttpUpdate](https://github.com/count023/esp-http-update-server) to provide a simple way to update the device, without connecting it via USB to the computer.
+A modularised implementation of HTTP-Update based on [another project](https://github.com/count023/esp-http-update-server) by me was added, too: (see GpioneersHttpUpdate.*) It’s to provide a simple way to update the device without USB-connection to the computer.
 
 
 ## Fritzing
